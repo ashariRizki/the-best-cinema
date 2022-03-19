@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import Header from "../../components/Header";
 
-const HomePage: React.FC = () => {
+const FAQPage: React.FC = () => {
   useEffect(() => {
-    document.title = "The Best Cinema | Home";
+    document.title = "The Best Cinema | FAQ";
   }, []);
+
   return (
     <div>
       <Header />
@@ -12,4 +13,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default FAQPage;
