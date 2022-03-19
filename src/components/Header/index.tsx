@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     <div className='bg-primary text-white mx-auto flex py-4 justify-center items-center'>
       <nav className='flex w-full justify-between max-w-[1400px] items-center'>
         <h1 className='text-xl'>The Best Cinema</h1>
-        <ul className='flex gap-8 text-lg'>
+        <ul className='flex gap-8 text-lg text-[#32a2a8]'>
           <NavLink to='/'>Home</NavLink>
           <NavLink to='/about'>About</NavLink>
           <NavLink to='/faq'>FAQ</NavLink>
