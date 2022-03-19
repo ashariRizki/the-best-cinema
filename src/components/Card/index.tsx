@@ -10,12 +10,12 @@ const Card: React.FC<MovieProps> = (props) => {
     <>
       <div
         onClick={() => setShow(true)}
-        className='block shadow-lg rounded-b-xl cursor-pointer relative'>
+        className='block shadow-lg rounded-b-xl cursor-pointer md:h-[26rem] w-full md:w-[17rem] xl:w-[18rem] h-[21rem] xl:h-[35rem] lg:h-[31rem]  relative'>
         <p className='absolute bottom-[4.8rem] left-5 h-[3rem] w-[3rem] flex justify-center items-center border-2 border-[#32a2a8] bg-primary p-2 text-sm text-white font-medium rounded-full'>
           {props.vote_average}
         </p>
         <img
-          className='xl:w-[19rem] xl:h-[28rem] lg:w-[18rem] lg:h-[25rem] w-[12rem] h-[15rem] object-cover rounded-t-xl'
+          className='xl:w-[19rem] xl:h-[28rem] lg:w-[18rem] lg:h-[25rem] w-full md:h-[20rem] h-[15rem] object-cover rounded-t-xl'
           src={
             props.poster_path
               ? process.env.REACT_APP_IMG_URL + props.poster_path

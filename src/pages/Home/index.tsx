@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className='flex flex-wrap gap-8'>
+          <div className='flex flex-wrap gap-8 mb-8'>
             {search
               ? moviesSearch.map((movie) => (
                   <Card
