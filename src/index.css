@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .modal {
+    @apply fixed inset-0 w-full h-full cursor-pointer z-40;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fetch-loading {
+  @apply w-full h-[70vh] flex items-center justify-center;
+}
+
+.fetch-loading-animation {
+  @applu block relative w-[4rem] h-[4rem];
+}
+
+.fetch-loading-animation div {
+  @apply block absolute w-[4rem] h-[4rem] rounded-[50%];
+  box-sizing: border-box;
+  border: 0.5rem solid #123aaa;
+  animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #123aaa transparent transparent transparent;
+}
+
+.fetch-loading-animation div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.fetch-loading-animation div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.fetch-loading-animation div:nth-child(3) {
+  animation-delay: -0.15s;
+}

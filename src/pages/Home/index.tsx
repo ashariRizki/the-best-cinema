@@ -1,39 +1,74 @@
-import React, { useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
+import Loading from "../../components/Loading";
 import { API } from "../../config/api";
 
 const HomePage: React.FC = () => {
-  const [movies, setMovies] = React.useState<any[]>([]);
+  const [movies, setMovies] = useState<any[]>([]);
+  const [moviesSearch, setMoviesSearch] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const getMovies = async () => {
-    const res = await API.get(
-      `/movie/popular?api_key=779ac0f172ef3f22c3585a35ed6c047f&language=en-US&page=1`
-    );
-    setMovies(res.data.results);
+  const [search, setSearch] = useState<string>("");
+
+  const getMovies = async (search: any) => {
+    setIsLoading(true);
+    let res: any;
+    if (search) {
+      res = await API.get(
+        `/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&include_adult=false&query=${search}`
+      );
+      setMoviesSearch(res.data.results);
+    } else {
+      res = await API.get(
+        `/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
+      );
+      setMovies(res.data.results);
+    }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
-
-  console.log(movies);
 
   useEffect(() => {
     document.title = "The Best Cinema | Home";
 
-    getMovies();
-  }, []);
+    getMovies(search);
+  }, [search]);
 
   return (
     <>
-      <Header />
-      <div className='mx-auto flex max-w-[1400px] flex-wrap mt-4'>
-        {movies.map((movie) => (
-          <Card
-            key={movie.id}
-            title={movie.title}
-            poster_path={movie.poster_path}
-            release_date={movie.release_date}
-            vote_average={movie.vote_average}
-          />
-        ))}
+      <Header search={search} setSearch={setSearch} />
+      <div className='mx-auto flex max-w-[1400px] flex-wrap mt-4 xl:px-0 px-4'>
+        <p className='mt-2 mb-4 font-bold text-lg'>Home</p>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className='flex flex-wrap gap-8'>
+            {search
+              ? moviesSearch.map((movie) => (
+                  <Card
+                    id={movie.id}
+                    key={movie.id}
+                    title={movie.title}
+                    poster_path={movie.poster_path}
+                    release_date={movie.release_date}
+                    vote_average={movie.vote_average}
+                  />
+                ))
+              : movies.map((movie) => (
+                  <Card
+                    id={movie.id}
+                    key={movie.id}
+                    title={movie.title}
+                    poster_path={movie.poster_path}
+                    release_date={movie.release_date}
+                    vote_average={movie.vote_average}
+                  />
+                ))}
+          </div>
+        )}
       </div>
     </>
   );
