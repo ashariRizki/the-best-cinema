@@ -28,7 +28,7 @@ const Card: React.FC<MovieProps> = (props) => {
           <p className='text-xs xl:text-sm mt-2'>{props.release_date}</p>
         </div>
       </div>
-      {show && <ModalDetail show={show} setShow={setShow} />}
+      {show && <ModalDetail id={props.id} show={show} setShow={setShow} />}
     </>
   );
 };
