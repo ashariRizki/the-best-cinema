@@ -5,5 +5,6 @@ declare namespace NodeJS {
     PUBLIC_URL: string;
     REACT_APP_API_URL: string;
     REACT_APP_API_KEY: number;
+    REACT_APP_IMG_URL: string;
   }
 }
