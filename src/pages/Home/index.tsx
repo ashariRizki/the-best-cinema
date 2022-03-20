@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Header search={search} setSearch={setSearch} />
-      <div className='mx-auto flex max-w-[1400px] flex-wrap mt-4 xl:px-0 px-4'>
+      <div className='mx-auto flex max-w-[1400px] flex-wrap mt-4 lg:px-4 xl:px-0 px-4'>
         <p className='mt-2 mb-4 font-bold text-lg'>Home</p>
         {isLoading ? (
           <Loading />

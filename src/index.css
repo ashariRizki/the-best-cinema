@@ -9,7 +9,7 @@
   }
 
   .modal--content {
-    @apply fixed mx-auto inset-0 w-[90%] xl:w-[70%] lg:w-[70%]  max-h-[70%] top-[50%] translate-y-[-50%] rounded-2xl bg-white z-[99] overflow-y-auto px-4 py-6;
+    @apply fixed mx-auto inset-0 w-[90%] xl:w-[70%] lg:w-[70%] max-h-[70%] top-[50%] translate-y-[-50%] rounded-2xl bg-white z-[99] overflow-y-auto px-4 py-6;
     box-shadow: 0px -4px 50px rgba(0, 0, 0, 0.6), 0px 4px 15px rgba(0, 0, 0, 0.15);
   }
 }
