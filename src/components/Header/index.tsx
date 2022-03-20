@@ -19,15 +19,12 @@ const Header: React.FC<SearchProps> = (props) => {
           <NavLink className='w-[5rem] xl:w-fit lg:w-fit' to='/'>
             Home
           </NavLink>
-          <NavLink className='w-[5rem] xl:w-fit lg:w-fit' to='/about'>
+          {/* <NavLink className='w-[5rem] xl:w-fit lg:w-fit' to='/about'>
             About
-          </NavLink>
-          <NavLink className='w-[5rem] xl:w-fit lg:w-fit' to='/faq'>
-            FAQ
           </NavLink>
           <NavLink className='w-[5rem] xl:w-fit lg:w-fit' to='/contact-us'>
             Contact Us
-          </NavLink>
+          </NavLink> */}
         </ul>
         <input
           value={props.search}
